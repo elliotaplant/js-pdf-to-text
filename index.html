@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PDF to Text</title>
+    <title>PDF to Text Converter</title>
+    <meta name="description" content="Convert your PDF files to text quickly and easily in your
+    browser. No account necessary."" />
+    <meta name="keywords" content="PDF, Text, Converter, PDF to Text, Extract Text from PDF" />
+    <meta name="author" content="Elliot Plant" />
+    <link rel="canonical" href="https://pdf-to-text.elliotplant.com" />
+
     <style>
       body {
         font-family: Arial, sans-serif;
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
         padding: 50px;
       }
 
@@ -39,13 +46,14 @@
         align-items: center;
         justify-content: center;
         padding: 30px;
+        margin: 2em 0;
         width: 80%;
         height: 4em;
-        border: 2px dashed #3498db; /* Blue dashed border */
+        border: 2px dashed #4788f2; /* Blue dashed border */
         border-radius: 10px; /* Rounded corners */
         text-align: center;
         cursor: pointer;
-        color: #3498db;
+        color: #4788f2;
         font-size: 24px;
       }
 
@@ -59,16 +67,60 @@
       #pdf-file {
         display: none;
       }
+
+      footer {
+        margin-top: 2em;
+      }
+
+      a {
+        color: #4788f2;
+        text-decoration: none;
+      }
     </style>
   </head>
   <body>
-    <!-- Using a label to trigger the hidden file input -->
+    <header>
+      <h1>PDF to Text Converter</h1>
+      <p>
+        Quickly and easily extract text from your PDF files in your browser. No accounts necessary.
+      </p>
+    </header>
+
     <label for="pdf-file" class="file-dropzone">Upload PDF</label>
     <input type="file" id="pdf-file" accept=".pdf" onchange="loadPdf()" />
 
-    <div id="pdf-text-container">
+    <section>
+      <h2>How to Convert PDF to Text</h2>
+      <p>
+        Simply drag and drop your PDF file into the area above or click to select a file from your
+        device. The extracted text will be displayed below.
+      </p>
+    </section>
+
+    <section id="pdf-text-container">
       <pre><code id="pdf-text-content"></code></pre>
-    </div>
+    </section>
+
+    <section>
+      <h2>FAQs</h2>
+
+      <h3>Is this service free?</h3>
+      <p>Yes, this tool is completely free to use.</p>
+
+      <h3>Do you store my files?</h3>
+      <p>No, this tool works entirely in your browser without any cloud storage or servers.</p>
+
+      <h3>My PDF looks garbled. Why?</h3>
+      <p>
+        This tool uses the "metadata" of the pdf to find the text on the page. It does not do
+        "optical character recognition". Your PDF may not have the necessary metadata for this tool
+        to extract the text.
+      </p>
+    </section>
+
+    <footer>
+      <p>Made with ❤️ by <a href="https://www.elliotplant.com">Elliot Plant</a>.</p>
+    </footer>
 
     <script src="https://unpkg.com/pdfjs-dist@2.9.359/build/pdf.js"></script>
     <script src="index.js"></script>
