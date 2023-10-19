@@ -14,6 +14,9 @@ function loadPdf() {
 
                 function getNextPage() {
                     pdf.getPage(currentPage).then(page => {
+
+                        const charSize = 3.7; // number of width units per character
+
                         page.getTextContent().then(text => {
                             let lastY, textLine = '';
 
@@ -24,8 +27,6 @@ function loadPdf() {
 
                                 if (lastY === undefined) lastY = y;
 
-                                console.log('textLine', textLine);
-                                console.log('x', x, str);
                                 // Newline if new Y is found
                                 if (Math.abs(lastY - y) > 3) {
                                     document.getElementById('pdf-text-content').innerText += textLine + '\n';
@@ -34,8 +35,7 @@ function loadPdf() {
                                 }
 
                                 // Adding spaces based on X distance
-                                const spacing = 5;
-                                const spacesToAdd = Math.round((x - (textLine.length * spacing)) / spacing);
+                                const spacesToAdd = Math.round((x - (textLine.length * charSize)) / charSize);
                                 if (spacesToAdd > 0) textLine += ' '.repeat(spacesToAdd);
 
                                 textLine += str;
