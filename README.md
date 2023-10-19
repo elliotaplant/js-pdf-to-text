@@ -1,6 +1,6 @@
 # PDF to Text Converter
 
-A browser-based tool that extracts and views the text content from PDF files easily and quickly. It's designed to be simple, efficient, and work right inside your browser—no need to upload files to external servers or install additional software.
+A browser-based tool that extracts and views the text content from PDF files easily and quickly. Designed to be simple, efficient, and work inside your browser. No need to upload files to external servers or install additional software.
 
 ## 🌐 Live Demo
 
