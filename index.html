@@ -33,28 +33,25 @@
         overflow-x: auto; /* Adding horizontal scrollbar */
       }
 
-      /* Styles for the custom file input button */
-      .custom-file-upload {
-        display: inline-block;
-        padding: 10px 20px;
-        cursor: pointer;
-        background-color: #3498db; /* Blue background */
-        color: white; /* White text */
-        border-radius: 5px; /* Rounded corners */
-        font-size: 16px; /* Larger font size */
+      /* Styles for the custom file dropzone */
+      .file-dropzone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+        width: 80%;
+        height: 4em;
+        border: 2px dashed #3498db; /* Blue dashed border */
+        border-radius: 10px; /* Rounded corners */
         text-align: center;
-        margin-bottom: 20px;
-        border: 2px solid #3498db; /* Blue border */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        transition: all 0.3s ease; /* Smooth transition effects */
+        cursor: pointer;
+        color: #3498db;
+        font-size: 24px;
       }
 
       /* Hover effect styles */
-      .custom-file-upload:hover {
-        background-color: white; /* White background */
-        color: #3498db; /* Blue text */
-        border-color: #3498db; /* Blue border */
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly darker shadow */
+      .file-dropzone:hover {
+        background-color: rgba(52, 152, 219, 0.1); /* Slight blue background */
       }
 
       /* Hidden actual file input */
@@ -66,7 +63,7 @@
   </head>
   <body>
     <!-- Using a label to trigger the hidden file input -->
-    <label for="pdf-file" class="custom-file-upload"> Upload PDF </label>
+    <label for="pdf-file" class="file-dropzone">Upload PDF</label>
     <input type="file" id="pdf-file" accept=".pdf" onchange="loadPdf()" />
 
     <div id="pdf-text-container">
