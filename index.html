@@ -1,19 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PDF to Text</title>
-</head>
-<body>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+      }
 
-    <input type="file" id="pdf-file" accept=".pdf" />
-    <button onclick="loadPdf()">Load PDF</button>
-    <pre><code id="pdf-text-content"></code></pre>
+      #pdf-file {
+        margin-bottom: 20px;
+      }
+
+      #pdf-text-container {
+        border: 1px solid #ccc;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 1em 0;
+        max-width: 90vw;
+        overflow: auto;
+        display: none;
+      }
+
+      pre {
+        font-family: 'Courier New', monospace;
+        margin: 0;
+        white-space: pre; /* This will make it horizontally scrollable */
+        overflow-x: auto; /* Adding horizontal scrollbar */
+      }
+
+      /* Styles for the custom file input button */
+      .custom-file-upload {
+        display: inline-block;
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: #3498db; /* Blue background */
+        color: white; /* White text */
+        border-radius: 5px; /* Rounded corners */
+        font-size: 16px; /* Larger font size */
+        text-align: center;
+        margin-bottom: 20px;
+        border: 2px solid #3498db; /* Blue border */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transition: all 0.3s ease; /* Smooth transition effects */
+      }
+
+      /* Hover effect styles */
+      .custom-file-upload:hover {
+        background-color: white; /* White background */
+        color: #3498db; /* Blue text */
+        border-color: #3498db; /* Blue border */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Slightly darker shadow */
+      }
+
+      /* Hidden actual file input */
+
+      #pdf-file {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Using a label to trigger the hidden file input -->
+    <label for="pdf-file" class="custom-file-upload"> Upload PDF </label>
+    <input type="file" id="pdf-file" accept=".pdf" onchange="loadPdf()" />
+
+    <div id="pdf-text-container">
+      <pre><code id="pdf-text-content"></code></pre>
+    </div>
 
     <script src="https://unpkg.com/pdfjs-dist@2.9.359/build/pdf.js"></script>
     <script src="index.js"></script>
-
-</body>
+  </body>
 </html>
-
